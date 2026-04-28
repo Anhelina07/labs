@@ -17,7 +17,7 @@ class Person(BaseModel):
         return [Person(**dict(row)) for row in rows]
 
 class Source(BaseModel):
-    id: int = Field(gt=100)
+    id: int = Field(gt=0)
     ip_addr: str  
     country_code: str = Field(min_length=2, max_length=2, pattern=r"^[A-Z]{2}$")
 
