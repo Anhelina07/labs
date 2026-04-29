@@ -8,7 +8,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          enable-caching: false   # вимикаємо кеш, бо нема lock-файлу
+          enable-caching: false   
       - name: Set up Python
         run: uv python install 3.12
       - name: Install dependencies
