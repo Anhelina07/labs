@@ -1,21 +1,15 @@
 name: Run pytest
-
 on: [push]
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
       - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
+        run: uv python install 3.x
       - name: Install dependencies
-        run: pip install pytest pydantic
-
+        run: uv add pytest pydantic
       - name: Run tests
-        run: pytest test_models.py -v
+        run: uv run pytest test_models.py -v
