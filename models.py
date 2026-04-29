@@ -7,7 +7,7 @@ conn.row_factory = sqlite3.Row
 cur = conn.cursor()
 
 class Person(BaseModel):
-    id: int = Field(gt=0)
+    id: int = Field(gt=100)
     name: str = Field(pattern= r"^[A-Za-z]+\ [A-Za-z]+$")
     addr: str
 
